@@ -21,6 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 addMessage(messageText, 'user-message');
                 messageInput.value = '';
             }
+
+                function showTypingIndicador() {
+                    if (!document.getElementById('typing-indicator')) {
+                        const typingDiv = document.createElement('div');
+                        typingDiv.classList.add('typing-indicator');
+                        typingDiv.id = 'typing-indicator';
+                        typingDiv.innerHTML = `<div class="dots"><span></span><span></span><span></span></div>`;
+                        messagesList.appendChild(typingDiv);
+                    }
+                }
+
+                function removeTypingIndicator() {
+                    const typingDiv = document.getElementById('typing-indicator');
+                    if (typingDiv) {
+                        messagesList.removeChild(typingDiv);
+                    }
+                }
+                showTypingIndicador();
+
+
                 fetch('/chat', { // Atenção: a rota tem que ser a mesma do seu Python
                     method: 'POST',
                     headers: {
@@ -30,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
+            removeTypingIndicator();
             // Quando o Python responder, pega na resposta e mostra no ecrã
             addMessage(data.response, 'bot-message');
         });
