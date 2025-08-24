@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATBOT V1</title>
+    <title>Meu Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Chat bot em construção</h1>
-
+    <H1 id = "main-title">Neural Inteligente v1</H1>
+    <div class="video-bg">
+    <video autoplay muted loop>
+      <source src="/static/images/fundo_matrix.mp4" type="video/mp4">
+    </video>
+  </div>
+    <div id="chat-container">
+        <div id="messages-list">
+            <div class="message bot-message">
+                <img src="/static/images/bot-icon.png" class="bot-icon">
+                <p>Olá! Eu sou a parte financeira inteligente da mente do Thallis. Como posso ajudar você hoje?</p>
+            </div>
+        </div>
     
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button id="send-button">Enviar</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/scripts.js') }}"></script>
 </body>
 </html>

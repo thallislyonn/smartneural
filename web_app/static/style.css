@@ -1,0 +1,157 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-size: cover; /*Garante que a imagem cobre todo o fundo*/
+    background-repeat: no-repeat; 
+    background-attachment: fixed; /* Mantém a imagem fixa enquanto o utilizador scrolla */
+    padding-top: 30px;
+}
+
+#main-title {
+    font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+    position: relative;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    font-size: 40px;
+    color: rgb(66, 255, 72); /* Cor verde brilhante */
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px black; /* Sombra para destacar o título */
+}
+
+/* Estilo do vídeo de fundo */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Garante que o vídeo não transborde */
+    z-index: -1; /* Coloca o vídeo atrás de outros elementos */
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cobre todo o fundo */
+}
+
+/* A janela principal do chat */
+#chat-container {
+    width: 90%;
+    height: 420px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    background-color: rgb(0, 0, 0); /* Adiciona uma leve transparência ao container do chat para melhor legibilidade */
+    box-shadow: 0 0 10px rgb(66, 255, 72);
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* A área onde as mensagens ficam */
+#messages-list {
+    flex-grow: 1; /* Faz esta área ocupar todo o espaço vertical disponível */
+    overflow-y: auto; /* Adiciona uma barra de rolagem se as mensagens passarem da altura */
+    padding: 5px;
+
+}
+
+/* O formulário de envio na base */
+#chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgb(66, 255, 72);
+
+}
+
+#message-input {
+    flex-grow: 1; /* Faz o campo de texto ocupar o espaço disponível */
+    border: 3px solid rgb(66, 255, 72);
+    border-radius: 18px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-right: 10px;
+    
+}
+
+#send-button {
+    background-color: rgb(21, 148, 25);
+    position: flex;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer; /* Muda o cursor para uma "mãozinha" */
+}
+.bot-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Deixa o ícone redondo */
+    background-color: #e9e9eb; /* Cor de fundo caso a imagem falhe */
+    margin-right: 5px; /* Espaço entre o ícone e a bolha */
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+#send-button:hover {
+    background-color: rgb(6, 82, 8); /* Cor um pouco mais escura ao passar o mouse */
+}
+
+/* --- Estilos das Bolhas de Mensagem --- */
+
+/* Estilo base para todas as mensagens */
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message p {
+    background-color: #e9e9eb;
+    color: #000000;
+    padding: 5px 20px;
+    border-radius: 18px;
+    margin: 1px;
+    max-width: 100%; /* Impede que a mensagem ocupe a largura toda */
+}
+
+/* Alinha a mensagem do BOT para a esquerda */
+.message.bot-message {
+    align-items: flex-start;
+    background-color: #e9e9eb;
+    color: #000000;
+    padding: 5px 20px;
+    border-radius: 18px;
+    margin: 0;
+    max-width: 70%; /* Impede que a mensagem ocupe a largura toda */
+    flex-direction: row; /* Coloca o ícone e o texto lado a lado */
+}
+
+/* Alinha a mensagem do USUÁRIO para a direita */
+.user-message {
+    align-items: flex-end;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+/* Cor específica para a bolha de mensagem do USUÁRIO */
+.user-message p {
+    background-color: rgb(6, 151, 11);
+    color: white;
+}
+
+/* Garante que a bolha de texto do utilizador não tem margem do lado errado */
+.user-message .bot-icon {
+    /* Esta regra é um truque para manter o alinhamento, mas sem mostrar um ícone para o user */
+    display: none;
+}
