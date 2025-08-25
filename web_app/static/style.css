@@ -100,6 +100,7 @@ body {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+
 }
 
 .message p {
@@ -108,7 +109,12 @@ body {
     padding: 5px 20px;
     border-radius: 18px;
     margin: 1px;
+    display: inline-block;
+    line-height: 1.4;
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+    text-align: left;
     max-width: 100%; /* Impede que a mensagem ocupe a largura toda */
+    word-wrap: break-word; /* Garante que o texto quebra corretamente */
 }
 
 /* Alinha a mensagem do BOT para a esquerda */
@@ -128,13 +134,28 @@ body {
     align-items: flex-end;
     align-self: flex-end;
     justify-content: flex-end;
+    box-sizing: border-box;
+    
 }
 
 /* Cor específica para a bolha de mensagem do USUÁRIO */
 .user-message p {
     background-color: rgb(6, 151, 11);
     color: white;
-}
+    width: fit-content;
+    max-width: 89%; /* Impede que a mensagem ocupe a largura toda */
+    box-sizing: border-box;
+    margin: 8px;
+    padding: 0px 10px;
+    display: inline-block;
+    border-radius: 18px;
+    word-wrap: break-word; /* Garante que o texto quebra corretamente */
+    text-align: left;
+    line-height: 1.4;
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+}   
+    
+
 
 /* Garante que a bolha de texto do utilizador não tem margem do lado errado */
 .user-message .bot-icon {
